@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 function Form() {
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,7 +20,7 @@ function Form() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/form",
+        `${BASE_URL}/api/form`,
         formData
       );
       if (response.status === 200) {
