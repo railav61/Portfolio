@@ -22,16 +22,6 @@ mongoose
   .catch((err) => console.error("Error connecting to MongoDB Atlas", err));
 
 app.use("/api/form", router);
-// app.post("/api/form", async (req, res) => {
-//   const { fullName, email, mobileNumber, userMsg } = req.body;
-//   console.log(req.body);
-//   if (!fullName || !email || !mobileNumber || !userMsg) {
-//     res.status(201).json({ message: "Email Already existed" });
-//   } else {
-//     await ReqUser.create({ fullName, email, mobileNumber, userMsg });
-//     res.status(200).json({ message: "Form data received successfully!" });
-//   }
-// });
 
 app.listen(PORT, () => {
   console.log("server started");
