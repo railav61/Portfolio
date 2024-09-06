@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
       } else {
         res
           .status(200)
-          .json({ message: "Data received successfully! Email sent." });
+          .json({ message: "Sent successfully! Check your Gmail." });
       }
     });
   }
