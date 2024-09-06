@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 function Form() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
+  
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,6 +22,7 @@ function Form() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const response = await axios.post(
         `${BASE_URL}/api/form`,
         formData
@@ -29,6 +33,7 @@ function Form() {
       } else if (response.status === 201) {
         setMessage(response.data.message);
       }
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +45,7 @@ function Form() {
         className="bg-white p-8  pb-20 rounded shadow-md w-full max-w-md"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">
-          User Information
+          Contact Us
         </h2>
 
         <div className="mb-4">
@@ -121,7 +126,20 @@ function Form() {
         >
           Submit
         </button>
-        {message && (
+        {!message && loading ? (
+          <div className="w-full pl-40 mt-3">
+            <ThreeDots
+              visible={true}
+              height="20"
+              width="80"
+              color="#0000FF"
+              radius="9"
+              ariaLabel="three-dots-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        ) : (
           <p className="text-center text-green-500 mt-4">{message}</p>
         )}
       </form>
