@@ -253,7 +253,7 @@ function Home() {
         </div>
         <br />
         <div className=" flex flex-row justify-between">
-          <p>phone: +91-9555967823</p>
+          <a href="tel:+919555967823">Call: +91 9555967823</a>
           <div>
             <a href="mailto:mritunjay102004@gmail.com" target="blank">
               gmail: mritunjay102004@gmail.com
