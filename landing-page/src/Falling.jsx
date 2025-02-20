@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 
 function Falling() {
   const spacemanRef = useRef();
-  let { scene, animations } = useGLTF("https://drive.google.com/file/d/1M4ekCL5CZSLE37b5hbAE7ItrVbcytacx/view?usp=drive_link");
+  let { scene, animations } = useGLTF("https://res.cloudinary.com/dmqwpwo6c/image/upload/f_auto,q_auto/v1/task-manager/axg02dxyp5r5domae9xl");
   const { actions } = useAnimations(animations, spacemanRef);
 
   useEffect(() => {
